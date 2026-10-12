@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ST-RADIO | ระบบกระจายเสียง IoT</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    =================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                📢
+            </div>
+
+            <div>
+
+                <h1>ST-RADIO</h1>
+
+                <p>
+                    IoT Announcement
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav>
+
+            <button
+                class="nav-item active"
+                data-page="broadcast"
+            >
+
+                🎙️
+
+                <span>
+                    กระจายเสียง
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="devices"
+            >
+
+                🔊
+
+                <span>
+                    จุดกระจายเสียง
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="history"
+            >
+
+                🕘
+
+                <span>
+                    ประวัติ
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR STATUS -->
+
+        <div class="sidebar-bottom">
+
+            <div class="system-mini">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>
+                        ระบบออนไลน์
+                    </strong>
+
+                    <small>
+                        พร้อมรับคำสั่ง
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN
+    =================================================== -->
+
+    <main class="main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h2 id="pageTitle">
+                    ระบบกระจายเสียง
+                </h2>
+
+                <p id="pageDescription">
+                    บันทึกเสียงและส่งไปยังจุดที่กำหนด
+                </p>
+
+            </div>
+
+
+            <div class="top-status">
+
+                <span class="status-dot"></span>
+
+                ระบบออนไลน์
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==================================================
+             BROADCAST PAGE
+        =================================================== -->
+
+        <div
+            class="content page"
+            id="broadcastPage"
+        >
+
+
+            <!-- LEFT -->
+
+            <div>
+
+
+                <!-- RECORD CARD -->
+
+                <section class="card">
+
+                    <div class="card-title">
+
+                        <h3>
+                            🎙️ บันทึกเสียงประกาศ
+                        </h3>
+
+                        <p>
+                            บันทึกเสียงแล้วฟังก่อนส่งไปยังจุดกระจายเสียง
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- RECORD -->
+
+                    <div class="record-box">
+
+                        <div
+                            id="recordStatus"
+                            class="record-status"
+                        >
+                            ⚪ พร้อมบันทึก
+                        </div>
+
+
+                        <div
+                            id="timer"
+                            class="timer"
+                        >
+                            00:00
+                        </div>
+
+
+                        <button
+                            id="recordButton"
+                            class="record-button"
+                        >
+                            🎙️ เริ่มบันทึก
+                        </button>
+
+
+                        <button
+                            id="stopButton"
+                            class="stop-button"
+                            disabled
+                        >
+                            ⏹ หยุดบันทึก
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- AUDIO PREVIEW -->
+
+                    <div class="preview-box">
+
+                        <h4>
+                            🎧 ฟังเสียงตัวอย่าง
+                        </h4>
+
+
+                        <audio
+                            id="audioPreview"
+                            controls
+                        ></audio>
+
+                    </div>
+
+
+
+                    <!-- TARGET POINTS -->
+
+                    <div class="points-section">
+
+                        <h4>
+                            📍 ส่งไปยังจุด
+                        </h4>
+
+
+                        <div class="points-grid">
+
+
+                            <!-- POINT 1 -->
+
+                            <label
+                                class="point-card selected"
+                            >
+
+                                <input
+                                    type="checkbox"
+                                    id="point1"
+                                    checked
+                                >
+
+
+                                <div class="point-icon">
+                                    🔊
+                                </div>
+
+
+                                <div class="point-info">
+
+                                    <strong>
+                                        จุดที่ 1
+                                    </strong>
+
+
+                                    <span>
+
+                                        <i></i>
+
+                                        ONLINE
+
+                                    </span>
+
+                                </div>
+
+                            </label>
+
+
+
+                            <!-- POINT 2 -->
+
+                            <label
+                                class="point-card selected"
+                            >
+
+                                <input
+                                    type="checkbox"
+                                    id="point2"
+                                    checked
+                                >
+
+
+                                <div class="point-icon">
+                                    🔊
+                                </div>
+
+
+                                <div class="point-info">
+
+                                    <strong>
+                                        จุดที่ 2
+                                    </strong>
+
+
+                                    <span>
+
+                                        <i></i>
+
+                                        ONLINE
+
+                                    </span>
+
+                                </div>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SEND BUTTON -->
+
+                    <button
+                        id="sendButton"
+                        class="announce-button"
+                        disabled
+                    >
+
+                        📤 ส่งประกาศ
+
+                    </button>
+
+
+
+                    <!-- STATUS -->
+
+                    <div
+                        id="announcementStatus"
+                        class="announcement-status"
+                    >
+
+                        🟢 กำลังรอคำสั่ง...
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+
+            <!-- RIGHT -->
+
+            <div class="right-column">
+
+
+                <!-- DEVICE STATUS -->
+
+                <section class="card">
+
+                    <div class="card-title">
+
+                        <h3>
+                            🔊 จุดกระจายเสียง
+                        </h3>
+
+                        <p>
+                            สถานะอุปกรณ์
+                        </p>
+
+                    </div>
+
+
+                    <div class="device-list">
+
+
+                        <!-- DEVICE 1 -->
+
+                        <div class="device">
+
+                            <div class="device-icon">
+                                🔊
+                            </div>
+
+
+                            <div class="device-info">
+
+                                <strong>
+                                    จุดที่ 1
+                                </strong>
+
+
+                                <span>
+
+                                    <i></i>
+
+                                    Online
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DEVICE 2 -->
+
+                        <div class="device">
+
+                            <div class="device-icon">
+                                🔊
+                            </div>
+
+
+                            <div class="device-info">
+
+                                <strong>
+                                    จุดที่ 2
+                                </strong>
+
+
+                                <span>
+
+                                    <i></i>
+
+                                    Online
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- HISTORY PREVIEW -->
+
+                <section class="card">
+
+                    <div class="card-title">
+
+                        <h3>
+                            🕘 ประวัติการประกาศ
+                        </h3>
+
+                    </div>
+
+
+                    <div
+                        id="history"
+                        class="history"
+                    >
+
+                        <div class="empty-history">
+
+                            ยังไม่มีประวัติการประกาศ
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             DEVICES PAGE
+        =================================================== -->
+
+        <div
+            class="content page page-hidden"
+            id="devicesPage"
+        >
+
+            <section class="card">
+
+                <div class="card-title">
+
+                    <h3>
+                        🔊 จุดกระจายเสียง
+                    </h3>
+
+                    <p>
+                        ตรวจสอบสถานะจุดกระจายเสียงทั้งหมด
+                    </p>
+
+                </div>
+
+
+                <div class="device-list">
+
+
+                    <!-- POINT 1 -->
+
+                    <div class="device">
+
+                        <div class="device-icon">
+                            🔊
+                        </div>
+
+
+                        <div class="device-info">
+
+                            <strong>
+                                จุดกระจายเสียงที่ 1
+                            </strong>
+
+
+                            <span>
+
+                                <i></i>
+
+                                Online
+
+                            </span>
+
+
+                            <small class="device-detail">
+                                ESP32 • รอรับคำสั่ง
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- POINT 2 -->
+
+                    <div class="device">
+
+                        <div class="device-icon">
+                            🔊
+                        </div>
+
+
+                        <div class="device-info">
+
+                            <strong>
+                                จุดกระจายเสียงที่ 2
+                            </strong>
+
+
+                            <span>
+
+                                <i></i>
+
+                                Online
+
+                            </span>
+
+
+                            <small class="device-detail">
+                                ESP32 • รอรับคำสั่ง
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- SYSTEM INFORMATION -->
+
+            <section class="card">
+
+                <div class="card-title">
+
+                    <h3>
+                        ℹ️ ข้อมูลระบบ
+                    </h3>
+
+                </div>
+
+
+                <div class="system-info">
+
+                    <div class="info-row">
+
+                        <span>
+                            จำนวนจุด
+                        </span>
+
+                        <strong>
+                            2 จุด
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span>
+                            ระยะห่าง
+                        </span>
+
+                        <strong>
+                            ประมาณ 50 เมตร
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span>
+                            สถานะระบบ
+                        </span>
+
+                        <strong class="online-text">
+                            ● Online
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span>
+                            โหมดการทำงาน
+                        </span>
+
+                        <strong>
+                            รอรับคำสั่ง
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             HISTORY PAGE
+        =================================================== -->
+
+        <div
+            class="content page page-hidden"
+            id="historyPage"
+        >
+
+            <section class="card">
+
+                <div class="card-title">
+
+                    <h3>
+                        🕘 ประวัติการประกาศ
+                    </h3>
+
+                    <p>
+                        รายการเสียงที่เคยส่งไปยังจุดกระจายเสียง
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="fullHistory"
+                    class="history"
+                >
+
+                    <div class="empty-history">
+
+                        ยังไม่มีประวัติการประกาศ
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+=================================================== -->
+
+<script src="script.js" defer></script>
+
+</body>
+
+</html>
